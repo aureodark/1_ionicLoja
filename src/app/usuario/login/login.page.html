@@ -33,11 +33,18 @@
   </form>
 </ion-content>
 
-<ion-content>
-  <div *ngIf="angularFireAuth.user | async as user">
-    <h1>Hello {{ user.displayName }}!</h1>
-    <h5>{{ user.email }}</h5>
-    <h5>{{ user.uid }}</h5>
-    <img src="{{ user.photoURL }}" alt="">
-  </div>
+<ion-content *ngIf="angularFireAuth.user | async as user">
+  <ion-label>
+    <ion-text>
+      <img src="{{ user.photoURL }}" alt="">
+      <h1>Olá {{ user.displayName }}!</h1>
+      <h2>ID: {{ user.uid }}</h2>
+      <ion-icon name="camera" (click)="getPhoto()"></ion-icon>
+    </ion-text>
+
+    <ion-item *ngFor="let photo of preview">
+      <img src="{{photo}}" alt="">
+    </ion-item>
+    
+  </ion-label>
 </ion-content>

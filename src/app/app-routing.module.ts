@@ -13,7 +13,8 @@ const routes: Routes = [
   {
     path: 'list', loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'login', loadChildren: './usuario/login/login.module#LoginPageModule' }
+  { path: 'login', loadChildren: './usuario/login/login.module#LoginPageModule' },
+  { path: 'perfil', loadChildren: './usuario/perfil/perfil.module#PerfilPageModule' }
 ];
 
 @NgModule({

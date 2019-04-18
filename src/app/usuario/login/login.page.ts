@@ -3,6 +3,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AlertController } from '@ionic/angular';
 import { auth } from 'firebase/app';
 import { UsuarioService } from '../usuario.service';
+import { Camera } from '@ionic-native/camera/ngx';
+
+
 
 
 @Component({
@@ -19,7 +22,8 @@ export class LoginPage implements OnInit {
   constructor(
     private angularFireAuth: AngularFireAuth,
     private alertController: AlertController,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private camera: Camera
   ) { }
 
   ngOnInit() {
@@ -47,7 +51,7 @@ export class LoginPage implements OnInit {
   }
 
   logout() {
-    this.uid = null; 
+    this.uid = null;
     this.usuarioService.logout();
   }
 
@@ -64,13 +68,13 @@ export class LoginPage implements OnInit {
   }
 
   loginG() {
-      this.angularFireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+    this.angularFireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
       .then(
-        res=>{
+        res => {
           console.log(res);
           this.uid = res.user.uid;
-      })
-      
+        })
+
   }
 
   async presentAlert(tipo: string, texto: string) {
@@ -82,7 +86,26 @@ export class LoginPage implements OnInit {
 
     await alert.present();
   }
-  
 
+
+  public preview = [];
+  getPhoto() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      console.log(base64Image);
+      this.preview.push(base64Image);
+    }, (err) => {
+      // Handle error
+    });
+  }
 
 }
