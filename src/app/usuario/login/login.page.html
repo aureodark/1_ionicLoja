@@ -38,8 +38,6 @@
     <h1>Hello {{ user.displayName }}!</h1>
     <h5>{{ user.email }}</h5>
     <h5>{{ user.uid }}</h5>
+    <img src="{{ user.photoURL }}" alt="">
   </div>
-  <ion-item lines="none">
-    <ion-button (click)="logout()" expand="danger">Sair</ion-button>
-  </ion-item>
 </ion-content>
