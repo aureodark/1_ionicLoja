@@ -1,16 +1,29 @@
 <ion-app>
   <ion-split-pane>
     <ion-menu>
+
       <ion-header>
-        <ion-item color="secondary" lines="none" [routerLink]="(['/login'])">
-          <ion-avatar slot="start">
-            <img src="{{ usuario.foto }}">
-          </ion-avatar>
-          <ion-label>{{ usuario.nome }}</ion-label>
-        </ion-item>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item color="secondary" lines="none" [routerLink]="(['/login'])" *ngIf="!usuario.uid">
+            <ion-avatar slot="start">
+              <img src="{{ usuario.foto }}">
+            </ion-avatar>
+            <ion-label>{{ usuario.nome }}</ion-label>
+          </ion-item>
+          <ion-item color="secondary" lines="none" [routerLink]="(['/perfil'])" *ngIf="!usuario.uid">
+            <ion-avatar slot="start">
+              <img src="{{ usuario.foto }}">
+            </ion-avatar>
+            <ion-label>{{ usuario.nome }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
       </ion-header>
+
       <ion-content>
         <ion-list>
+
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
@@ -31,6 +44,7 @@
 
         </ion-list>
       </ion-content>
+
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>
