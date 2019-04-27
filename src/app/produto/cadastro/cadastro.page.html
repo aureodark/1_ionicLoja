@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="onSubmit()" #fc="ngForm">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" class="form-control" [(ngModel)]="produto.nome" name="nome" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-input type="text" class="form-control" [(ngModel)]="produto.descricao" name="descricao" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Quantidade</ion-label>
+      <ion-input type="number" class="form-control" [(ngModel)]="produto.quant" name="quant" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Valor</ion-label>
+      <ion-input type="number" class="form-control" [(ngModel)]="produto.valor" name="valor" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fotos</ion-label>
+      <ion-fab-button (click)="getPhoto()">
+          <ion-icon name="camera"></ion-icon>
+          </ion-fab-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Ativo</ion-label>
+      <ion-toggle name="ativo" [(ngModel)]="produto.ativo"></ion-toggle>
+    </ion-item>
+
+    <ion-button type="submit" [disabled]="fc.invalid">Salvar</ion-button>
+    <ion-button type="reset" [routerLink]="['/']">Cancelar</ion-button>
+  </form>
+
+</ion-content>

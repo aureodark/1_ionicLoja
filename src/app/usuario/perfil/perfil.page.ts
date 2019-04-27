@@ -26,6 +26,7 @@ export class PerfilPage implements OnInit {
 
 
   public preview = [];
+  
   getPhoto() {
     const options: CameraOptions = {
       quality: 100,
@@ -38,7 +39,6 @@ export class PerfilPage implements OnInit {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
       let base64Image = 'data:image/jpeg;base64,' + imageData;
-      console.log(base64Image);
       this.preview.push(base64Image);
     }, (err) => {
       // Handle error

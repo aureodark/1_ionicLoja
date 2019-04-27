@@ -1,18 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-text>
-        <img src="{{ user.photoURL }}" alt="">
-        <h1>Olá {{ user.displayName }}!</h1>
-        <h2>ID: {{ user.uid }}</h2>
+        <img src="{{ usuario.foto }}" alt="">
+        <h1>Olá {{ usuario.nome }}!</h1>
+        <h2>ID: {{ usuario.uid }}</h2>
         <ion-icon name="camera" (click)="getPhoto()"></ion-icon>
       </ion-text>
   
       <ion-item *ngFor="let photo of preview">
-        <img src="{{photo}}" alt="">
+        <img src="{{ photo }}" alt="">
       </ion-item>
 </ion-content>
