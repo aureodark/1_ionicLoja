@@ -8,19 +8,19 @@
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  
+   
   <ion-content>
     <ion-grid>
       <ion-row>
-        <ion-col *ngFor="let c of produto | async">
-          <ion-card [routerLink]="[ '/perfil', c.key ]">
-            <ion-img src="{{ c.foto }}"></ion-img>
+        <ion-col size="6" *ngFor="let produto of produtos | async ">
+          <ion-card (click)="edit(produto, produto.key)">
+            <ion-img src="{{ produto.fotos }}"></ion-img>
             <ion-card-header>
-              <ion-card-title><b>{{c.nome}}</b></ion-card-title>
+              <ion-card-title><b>{{produto.nome}}</b></ion-card-title>
             </ion-card-header>
             <ion-card-content>
-                <ion-card-title>R${{c.valor}}</ion-card-title>
-              <p>{{ c.descricao }}</p>
+                <ion-card-title>R${{produto.valor}}</ion-card-title>
+              <p>{{ produto.descricao }}</p>
             </ion-card-content>
           </ion-card>
         </ion-col>

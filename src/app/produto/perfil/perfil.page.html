@@ -3,10 +3,68 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Página do Produto</ion-title>
+    <ion-title>Produto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+  <!-- Carroseul-->
+  <!-- <ion-list>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-img [src]="produto.fotos"></ion-img>
+      </ion-thumbnail>
+    </ion-item>
+  </ion-list> -->
+
+
+
+
+
+<ion-card>
+  <ion-slides paginationClickable=true initialSlide=0 loop=true autoplay=1000 speed=2000 #mySlider>
+
+    <ion-slide *ngFor="let item of elenco">
+      <img src="{{item.img}}">
+    </ion-slide>
+  </ion-slides>
+
+  <div class="swiper-button-next" (click)="slideNext()"></div>
+  <div class="swiper-button-prev" (click)="slidePrev()"></div>
+</ion-card>
+
+
+
+
+
+
+  <ion-text>
+    <h3>Nome: {{ produto.nome }}</h3>
+  </ion-text>
+
+  <ion-text>
+    <h2>R$ {{ produto.valor }}</h2>
+  </ion-text>
+
+  <ion-text>
+    <p>Quantidade: {{ produto.quant }}</p>
+  </ion-text>
+
+  <ion-text>
+    <h4>Descrição</h4>
+  </ion-text>
+
+  <ion-text>
+    <p>{{ produto.descricao }}</p>
+  </ion-text>
+
+
+
+
+
+
+
+
+
+
 </ion-content>
