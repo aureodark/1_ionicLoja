@@ -6,7 +6,10 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ProdutoDadosService } from '../produto-dados.service';
 
 import { AlertController } from '@ionic/angular';
+<<<<<<< HEAD
 import { ViewChild } from '@angular/core';
+=======
+>>>>>>> 8d7862fdcbe20cf824044b8f34e1165f3dd717d8
 
 
 @Component({
@@ -36,7 +39,10 @@ export class CadastroPage implements OnInit {
         this.produto.descricao = data.produto.descricao;
         this.produto.quant = data.produto.quant;
         this.produto.valor = data.produto.valor;
+<<<<<<< HEAD
         this.produto.fotos = data.produto.fotos;
+=======
+>>>>>>> 8d7862fdcbe20cf824044b8f34e1165f3dd717d8
       }
     })
   }
@@ -82,6 +88,7 @@ export class CadastroPage implements OnInit {
 
     await alert.present();
   }
+<<<<<<< HEAD
 
 
   @ViewChild('mySlider') mySlider: any;
@@ -93,4 +100,6 @@ export class CadastroPage implements OnInit {
   slidePrev() {
     this.mySlider.slidePrev();
   }
+=======
+>>>>>>> 8d7862fdcbe20cf824044b8f34e1165f3dd717d8
 }
