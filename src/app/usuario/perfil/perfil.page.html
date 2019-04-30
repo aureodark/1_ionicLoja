@@ -8,14 +8,15 @@
 </ion-header>
 
 <ion-content>
-    <ion-text>
+    <ion-text style="text-align: center">
         <img src="{{ usuario.foto }}" alt="">
         <h1>Olá {{ usuario.nome }}!</h1>
-        <h2>ID: {{ usuario.uid }}</h2>
-        <ion-icon name="camera" (click)="getPhoto()"></ion-icon>
+        <h4>ID: {{ usuario.uid }}</h4>
       </ion-text>
   
-      <ion-item *ngFor="let photo of preview">
+
+      
+     <!-- <ion-item *ngFor="let photo of preview">
         <img src="{{ photo }}" alt="">
-      </ion-item>
+      </ion-item> -->
 </ion-content>

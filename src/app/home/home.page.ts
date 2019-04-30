@@ -3,6 +3,8 @@ import { Produto } from '../produto/produto'
 import { Observable } from 'rxjs';
 import { ProdutoService } from '../produto/produto.service';
 import { Router } from '@angular/router';
+import { ProdutoDadosService } from '../produto/produto-dados.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,14 +12,20 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  produto: Observable<any>;
+  produtos: Observable<any>;
 
   constructor(
     private produtoService: ProdutoService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private produtoDataService: ProdutoDadosService
+  ) { }
 
   ngOnInit() {
-    this.produto = this.produtoService.getAll();
+    this.produtos = this.produtoService.getAll();
   }
+  edit(produto: Produto, key: string) {
+    this.router.navigate(['/perfilP'])
+    this.produtoDataService.changeProduto(produto, key);
+  }
+
 }

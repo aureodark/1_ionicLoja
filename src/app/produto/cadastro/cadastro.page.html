@@ -8,6 +8,29 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-card>
+    <ion-slides paginationClickable=true initialSlide=0 loop=true autoplay=1000 speed=2000 #mySlider>
+
+      <ion-slide style="max-height:200px; min-height:200px">
+        <img src="{{produto.fotos[0] }}">
+      </ion-slide>
+      <ion-slide style="max-height:200px">
+        <img src="{{produto.fotos[1] }}">
+      </ion-slide>
+      <ion-slide style="max-height:200px">
+        <img src="{{produto.fotos[2] }}">
+      </ion-slide>
+    </ion-slides>
+
+    <div class="swiper-button-next" (click)="slideNext()"></div>
+    <div class="swiper-button-prev" (click)="slidePrev()"></div>
+    <ion-button expand="block" (click)="getPhoto()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-button>
+  </ion-card>
+
+
   <form (ngSubmit)="onSubmit()" #fc="ngForm">
     <ion-item>
       <ion-label position="floating">Nome</ion-label>
@@ -31,13 +54,6 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Fotos</ion-label>
-      <ion-fab-button (click)="getPhoto()">
-          <ion-icon name="camera"></ion-icon>
-          </ion-fab-button>
-    </ion-item>
-
-    <ion-item>
       <ion-label position="floating">Ativo</ion-label>
       <ion-toggle name="ativo" [(ngModel)]="produto.ativo"></ion-toggle>
     </ion-item>
@@ -45,5 +61,6 @@
     <ion-button type="submit" [disabled]="fc.invalid">Salvar</ion-button>
     <ion-button type="reset" [routerLink]="['/']">Cancelar</ion-button>
   </form>
+
 
 </ion-content>

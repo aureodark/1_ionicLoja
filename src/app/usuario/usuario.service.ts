@@ -21,7 +21,7 @@ export class UsuarioService {
     this.usuario = new Usuario;
 
     this.usuario.foto = '../../assets/user.jpg';
-    this.usuario.nome = "Usuário";
+    this.usuario.nome = "Login";
 
     this.angularFireAuth.user.subscribe(
       res => {
